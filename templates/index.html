@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer On Duty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar-wrapper" id="navbar-wrapper">
+        <nav class="navbar" id="navbar">
+            <div>
+                <span class="color-navbar">
+                    <h1 class="logo">
+                        <a href="#home" class="img-just">
+                            <img src="/assets/logo.png" alt="">
+                            <p>
+                                Meteorology Early Warning Systems
+                            </p>
+                        </a>
+                    </h1>
+                </span>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Title -->
+    <h1>LOREM IPSUM</h1>
+
+
+    <!-- Head Officer -->
+
+    <div class="image-container">
+        <img src="/assets/template_34.jpg" alt="Head-officer-image" class="img">
+        <h2>I Nyoman Gede Wiryajaya, S.TP., MP</h2>
+        <p>Koordinator Bidang Pelayanan</p>
+    </div>
+
+    <!-- Vice Head Officer -->
+    <div class="image-container">
+        <img src="/assets/template_34.jpg" alt="Vice-head-officer-image">
+        <h2>Tirtha Wijaya, SP</h2>
+        <p>Sub Koordinator Bidang Pelayanan</p>
+    </div>
+
+
+    <h1>LOREM IPSUM</h1>
+    <!-- Officer On Duty -->
+    <!-- Template -->
+    <!-- <div class="ofc-on-dty-container">
+        <div class="container">
+            <img src="/assets/template_34.jpg" alt="ofc1">
+            <div class="text">
+                <h2>Nama</h2>
+                <p>Jabatan</p>
+            </div>
+        </div>
+        <div class="container">
+            <img src="/assets/template_34.jpg" alt="ofc2">
+            <div class="text">
+                <h2>Nama</h2>
+                <p>Jabatan</p>
+            </div>
+        </div>
+        <div class="container">
+            <img src="/assets/template_34.jpg" alt="ofc3">
+            <div class="text">
+                <h2>Nama</h2>
+                <p>Jabatan</p>
+            </div>
+        </div>
+        <div class="container">
+            <img src="/assets/template_34.jpg" alt="ofc4">
+            <div class="text">
+                <h2>Nama</h2>
+                <p>Jabatan</p>
+            </div>
+        </div>
+    </div> -->
+    <div class="ofc-on-dty-container">
+        {% for ofc in ofc_on_duty %}
+        <div class="container">
+            <img src="data:image/jpg;base64,/assets/{{ofc.nama}}.jpg" alt="ofc">
+            <div class="text">
+                <h2>{{ofc.nama}}</h2>
+                <p>{{ofc.jabatan}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</body>
+</html>
