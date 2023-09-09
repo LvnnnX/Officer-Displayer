@@ -13,13 +13,14 @@ def get_images(name: str) -> Image.Image:
 
 @app.route('/', methods=['GET', 'POST'])
 def indexku():
+    num_images = 2
     table = [
         {
             'nama': 'Budi',
             'nip': '21085249',
         }
     ]
-    return render_template('index.html', table=table)
+    return render_template('index.html', table=table, num_images=num_images)
 
 if __name__ == '__main__':
     PATH = Path(__file__).parent

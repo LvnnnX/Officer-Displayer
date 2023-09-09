@@ -65,3 +65,8 @@ html {
 .fa-brands:hover{
     color: #94b7ff;
 }
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
