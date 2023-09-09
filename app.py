@@ -8,6 +8,9 @@ from glob import glob
 import app
 from livereload import Server
 
+PATH = Path(__file__).parent
+IMAGEDIR = PATH / 'static' / 'images'
+
 app: Flask = Flask(__name__)
 
 def get_df_excel(df_name:str | None = 'list-pegawai - Copy') -> pd.DataFrame:
@@ -21,21 +24,21 @@ def get_current_shift(df:pd.DataFrame) -> list[dict]:
     # df = df[df['Shift'] >= int(hours_now)]
     return_df: list[dict] = []
     for i in range(6):
-        return_df.append(df.iloc[i].to_dict())
-    return return_df
+        return_df.append(df.iloc[-i].to_dict())
+    return check_valid_photos(return_df)
 
 def check_valid_photos(df:list[dict]) -> list[dict]:
     for x,data in enumerate(df):
         try:
-            valid = glob(PATH / 'static' / 'images' / f'{data["Nama File"]}.*')
-            df[x]['Nama File'] = valid[0]
+            valid = str(next(IMAGEDIR.glob(f'{data["Nama File"]}.*')))
+            df[x]['Nama File'] = valid.split('\\')[-1]
         except:
             df[x]['Nama File'] = 'template_photo.jpeg' 
-    return df
+    return get_profile_pics(df)
 
 def get_profile_pics(df:list[dict]) -> list:
     for x,data in enumerate(df):
-        data = url_for('static', filename='images/' + 'template_photo.jpeg')
+        data = url_for('static', filename='images/' + data['Nama File'])
         df[x]['Profpics'] = data
     return df
 
@@ -50,12 +53,10 @@ def indexku():
     # ]
     df: pd.DataFrame = get_df_excel()
     table: pd.DataFrame = get_current_shift(df)
-    table = check_valid_photos(table)
-    table = get_profile_pics(table)
     return render_template('index.html', table=table)
 
 if __name__ == '__main__':
-    PATH = Path(__file__).parent
+    
     # if now > dt.timedelta(hours=18):
     #     nama = nama[0:8]
     #     nip = nip[0:8]
