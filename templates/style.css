@@ -1,114 +1,67 @@
-body {
-    line-height: 1.5em;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap");
+
+html {
     padding: 0;
     margin: 0;
-    background-color: #333;
 }
 
-.navbar-wrapper {
-    background-color: black;
-    overflow: hidden;
-    padding: 0px 0px;
+* {
+    font-family: 'poppins', sans-serif;
+}
+
+.navbar {
+    border-bottom: 1px solid #e2e2e2;
+    background-color: white;
+}
+
+.logo {
+    width: 45px;
+    height: 55px;
+    margin-right: 15px;
+}
+.text-logo{
+    flex-shrink: 0;
+    font-size: 18px;
+    /* font-weight: bold; */
+    font-weight: 600;
+}
+
+.content{
+    padding-top: 6rem;
+
+}
+.footer{
+    background-color: #0442BF;
     position: relative;
-    /* text-decoration: none; */
 }
-
-.navbar-wrapper img {
-    float: left;
-    margin: 0px 0px;
-    padding: 0px 15px;
-    padding-bottom: 10px;
-    width: 3%;
-}
-
-.navbar-wrapper a{
-    text-decoration: none;
-}
-
-.navbar-wrapper p {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: left;
-}
-
-h1 {
-    color: white;
-    /* font-size: 20px; */
-    font-weight: bold;
-    text-align: center;
-}
-
-.image-container {
+.text-footer {
     position: relative;
-    background: darkgrey;
-    height: 320;
-    width: 500px;
-    margin: 2% auto;
-    /* transform: translate(-50%,-50%); */
-    text-align: center;
 }
 
-.image-container img{
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 240px;
-    max-height: 320px;
+.text-footer::before {
+    content: "";
+    position: absolute;
+    top: -10px; /* Sesuaikan dengan jarak yang Anda inginkan */
+    left: 0;
+    right: 0;
+    border-top: 1px solid #ccc; /* Warna dan ketebalan garis disesuaikan sesuai kebutuhan */
+    transform: translateY(40px);
 }
-
-.image-container p{
+.left-footer{
+    font-size: 14px;
+}
+.alamat-footer{
     color: white;
-    font-size: 20px;
-    font-weight: bold;
-    /* text-align: center; */
-    padding: 0;
-    margin: 0;
+    font-weight: 600;
+    /* margin-top: 3px; */
 }
-
-.image-container h2 {
-    margin: 0;
-    padding: 0;
+.text-alamat{
+    transform: translateY(-10px);
+}
+.fa-brands{
+    font-size: 25px;
     color: white;
 }
-
-.ofc-on-dty-container {
-    position: relative;
-    background: darkgrey;
-    width: 100%;
-    height: 320px;
-    margin: 2% auto;
-    display: flex;
-    /* align-items: center; */
-}
-
-.ofc-on-dty-container .container {
-    flex: 1;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.container img {
-    width: 240px;
-    height: 320px;
-    margin-right: 20px;
-}
-
-.container h2 {
-    margin: 0;
-    padding: 0;
-    color: white;
-}
-
-.container p {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    /* text-align: center; */
-    padding: 0;
-    margin: 0;
-}
-
-.img-just {
-    display: flex;
-    align-items: center;
+.fa-brands:hover{
+    color: #94b7ff;
 }

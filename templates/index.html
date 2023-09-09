@@ -1,95 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Officer On Duty</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>On Duty Tracking</title>
 </head>
-<body>
-    <header class="navbar-wrapper" id="navbar-wrapper">
-        <nav class="navbar" id="navbar">
-            <div>
-                <span class="color-navbar">
-                    <h1 class="logo">
-                        <a href="#home" class="img-just">
-                            <img src="/assets/logo.png" alt="">
-                            <p>
-                                Meteorology Early Warning Systems
-                            </p>
-                        </a>
-                    </h1>
-                </span>
+
+<body class="">
+    <div class="d-flex flex-column justify-content-between vh-100">
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img class="logo" src="/assets/logo BMKG.png" alt="">
+                    <span class="text-logo d-lg-inline ml-3">Meteorology Early Warning <br>System</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
         </nav>
-    </header>
+        <!-- NAVBAR END -->
 
+        <!-- ISI -->
+        <div class="container content text-center">
+            <h3 class="m-4" style="font-weight: 600;">Officer Display</h3>
 
-    <!-- Title -->
-    <h1>LOREM IPSUM</h1>
+            <div class="row d-flex justify-content-center">
+                <div class="card" style="width: 8rem; border-style: none;">
+                    <img src="/assets/template_34.jpg" class="card-img-top" alt="...">
+                </div>
+                <p class="mt-2">Ini Nama Saya <br>NIP. 123123123</p>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="card" style="width: 8rem; border-style: none;">
+                    <img src="/assets/template_34.jpg" class="card-img-top" alt="...">
+                </div>
+                <p class="mt-2">Ini Nama Saya <br>NIP. 123123123</p>
+            </div>
 
+            <hr class="text-footer">
+            <h3 class="text-left pb-5" style="font-weight: 600; text-align: left;">On Duty</h3>
+            <div class="row">
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center text-center">
+                    <!-- Tambahkan class "text-center" di sini -->
+                    <div class="card" style="width: 8rem; border-style: none;">
+                        <img src="/assets/template_34.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <p class="mt-2">Ini Nama Saya <br>NIP. 123123123</p>
+                </div>
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                    <!-- Tambahkan class "text-center" di sini -->
+                    <div class="card" style="width: 8rem; border-style: none;">
+                        <img src="/assets/template_34.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <p class="mt-2">Ini Nama Saya <br>NIP. 123123123</p>
+                </div>
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                    <!-- Tambahkan class "text-center" di sini -->
+                    <div class="card" style="width: 8rem; border-style: none;">
+                        <img src="/assets/template_34.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <p class="mt-2">Ini Nama Saya <br>NIP. 123123123</p>
+                </div>
+            </div>
+            <div class="row pb-5">
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center text-center">
+                    <!-- Tambahkan class "text-center" di sini -->
+                    <div class="card" style="width: 8rem; border-style: none;">
+                        <img src="/assets/template_34.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <p class="mt-2">Ini Nama Saya <br>NIP. 123123123</p>
+                </div>
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                    <!-- Tambahkan class "text-center" di sini -->
+                    <div class="card" style="width: 8rem; border-style: none;">
+                        <img src="/assets/template_34.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <p class="mt-2">Ini Nama Saya <br>NIP. 123123123</p>
+                </div>
+                <div class="col-4 d-flex flex-column align-items-center justify-content-center">
+                    <!-- Tambahkan class "text-center" di sini -->
+                    <div class="card" style="width: 8rem; border-style: none;">
+                        <img src="/assets/template_34.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <p class="mt-2">Ini Nama Saya <br>NIP. 123123123</p>
+                </div>
+            </div>
+        </div>
+        <!-- ISI END -->
 
-    <!-- Head Officer -->
-
-    <div class="image-container">
-        <img src="/assets/template_34.jpg" alt="Head-officer-image" class="img">
-        <h2>I Nyoman Gede Wiryajaya, S.TP., MP</h2>
-        <p>Koordinator Bidang Pelayanan</p>
+        <!-- INI FOOTER -->
+        <footer class="footer text-light bottom pt-5">
+            <div class="container">
+                <div class="row d-flex justify-content-between flex-md-row flex-column">
+                    <div class="col-3 left-footer">
+                        <img class="logo-footer img-fluid" src="/assets/Frame 14.png" alt="" style="width: 15vh;">
+                        <p class="text-alamat mt-4">Badan Meteorologi, Klimatologi, dan Geofisika | Meteorology Early
+                            Warning System</p>
+                        <div class="row mt-3">
+                            <a class="col-4" href="https://www.facebook.com/profile.php?id=100064877880778"
+                                target="_blank">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a class="col-4" href="https://www.instagram.com/bmkgbali/" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a class="col-4" href="https://twitter.com/bbMKG3" target="_blank">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <h4 style="font-weight: 600;">Contact Us</h4>
+                        <p class="alamat-footer mt-3">Alamat</p>
+                        <p class="text-alamat">Jl. Raya Tuban, Tuban, Kec. Kuta, Kabupaten Badung, Bali 80361</p>
+                        <hr class="text-footer">
+                        <p class="alamat-footer">Telepon</p>
+                        <p class="text-alamat">(0361) 751122</p>
+                        <hr class="text-footer">
+                        <p class="alamat-footer">Email</p>
+                        <p class="text-alamat">bbmkg3@bmkg.go.id</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <p class="text-footer text-center pt-5">&copy; Badan Meteorologi, Klimatologi, & Geofisika</p>
+            </div>
+        </footer>
+        <!-- FOOTER END -->
     </div>
 
-    <!-- Vice Head Officer -->
-    <div class="image-container">
-        <img src="/assets/template_34.jpg" alt="Vice-head-officer-image">
-        <h2>Tirtha Wijaya, SP</h2>
-        <p>Sub Koordinator Bidang Pelayanan</p>
-    </div>
-
-
-    <h1>LOREM IPSUM</h1>
-    <!-- Officer On Duty -->
-    <!-- Template -->
-    <!-- <div class="ofc-on-dty-container">
-        <div class="container">
-            <img src="/assets/template_34.jpg" alt="ofc1">
-            <div class="text">
-                <h2>Nama</h2>
-                <p>Jabatan</p>
-            </div>
-        </div>
-        <div class="container">
-            <img src="/assets/template_34.jpg" alt="ofc2">
-            <div class="text">
-                <h2>Nama</h2>
-                <p>Jabatan</p>
-            </div>
-        </div>
-        <div class="container">
-            <img src="/assets/template_34.jpg" alt="ofc3">
-            <div class="text">
-                <h2>Nama</h2>
-                <p>Jabatan</p>
-            </div>
-        </div>
-        <div class="container">
-            <img src="/assets/template_34.jpg" alt="ofc4">
-            <div class="text">
-                <h2>Nama</h2>
-                <p>Jabatan</p>
-            </div>
-        </div>
-    </div> -->
-    <div class="ofc-on-dty-container">
-        {% for ofc in ofc_on_duty %}
-        <div class="container">
-            <img src="data:image/jpg;base64,/assets/{{ofc.nama}}.jpg" alt="ofc">
-            <div class="text">
-                <h2>{{ofc.nama}}</h2>
-                <p>{{ofc.jabatan}}</p>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
 
 
 </body>
+
 </html>
