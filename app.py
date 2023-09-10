@@ -47,9 +47,31 @@ def get_profile_pics(df:list[dict]) -> list:
 def indexku():
     # table = [
     #     {
-    #         'nama': 'Budi',
-    #         'nip': '21085249',
+    #         'Nama': 'Nama1',
+    #         'NIP': '123',
+    #         'Profpics': 'gambar1.jpg',
+    #     },
+    #     {
+    #         'Nama': 'Nama2',
+    #         'NIP': '456',
+    #         'Profpics': 'gambar2.jpg',
+    #     },
+    #     {
+    #         'Nama': 'Nama2',
+    #         'NIP': '456',
+    #         'Profpics': 'gambar2.jpg',
+    #     },
+    #     {
+    #         'Nama': 'Nama2',
+    #         'NIP': '456',
+    #         'Profpics': 'gambar2.jpg',
+    #     },
+    #     {
+    #         'Nama': 'Nama2',
+    #         'NIP': '456',
+    #         'Profpics': 'gambar2.jpg',
     #     }
+    #     # ... tambahkan data lainnya sesuai kebutuhan Anda ...
     # ]
     df: pd.DataFrame = get_df_excel()
     table: pd.DataFrame = get_current_shift(df)
