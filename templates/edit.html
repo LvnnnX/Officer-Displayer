@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link href="/static/assets/style.css" rel="stylesheet">
+    <link href="{{url_for('static',filename='assets/custom.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta http-equiv="refresh" content="3600">
     <title>On Duty Tracking</title>
@@ -49,7 +49,7 @@
 
         <!-- ISI -->
         <div class="container">
-            <h3 class="mt-5 pt-5 text-center" style="font-weight: 600;">Add Officer</h3>
+            <h3 class="mt-5 pt-5 text-center" style="font-weight: 600;">Edit Officer</h3>
             <hr class="text-footer">
 
             <div class="dropdown text-center">
@@ -58,41 +58,42 @@
                     Menu Officer
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Add officer</a></li>
-                    <li><a class="dropdown-item" href="/static/assets/remove.html">Remove officer</a></li>
-                    <li><a class="dropdown-item" href="/static/assets/edit.html">Edit officer</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('custom')}}">Add officer</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('remove')}}">Remove officer</a></li>
+                    <li><a class="dropdown-item" href="">Edit officer</a></li>
                 </ul>
             </div>
-            <div class="row">
-                <div class="col-md-12 dropdown text-center mt-5">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Officer names
-                    </button>
-                    <ul class="dropdown-menu" id="officerDropdown">
-                        <li><a class="dropdown-item" href="#" data-nama="Name1" data-nip="12345"
-                                data-foto="foto1.jpg">Name1</a></li>
-                        <li><a class="dropdown-item" href="#" data-nama="Name2" data-nip="67890"
-                                data-foto="foto2.jpg">Name2</a></li>
-                        <li><a class="dropdown-item" href="#" data-nama="Name3" data-nip="54321"
-                                data-foto="foto3.jpg">Name3</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-6 d-flex justify-content-center mx-auto">
-                    <div class="row mt-4">
-                        <div class="col-md-12 d-flex justify-content-center mx-auto">
-                            <h3>Informasi Pegawai</h3>
-                            <p>Nama: <span id="infoNama"></span></p>
-                            <p>NIP: <span id="infoNIP"></span></p>
-                            <img src="" alt="Foto Pegawai" id="infoFoto" style="max-width: 100%;">
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center mx-auto">
-                    <button class="btn btn-primary" id="addOfficerBtn">Add Officer</button>
-                </div>
+            <div class="col-md-9 dropdown text-center mt-5">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Officer names
+                </button>
+                <ul class="dropdown-menu">
+                    {% for data in table %}
+                    <li><a class="dropdown-item" href="#" onclick="showOfficerForm('{{data.Nama}}', '{{data.NIP}}','{{data.Profpics}}')">{{data.Nama}}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
+
+            <div class="col-md-6 d-flex justify-content-center mx-auto">
+                <form class="mt-4" id="officerForm" style="width: 80%;">
+                    <div class="mb-3">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">NIP</label>
+                        <input type="text" class="form-control" id="nip">
+                    </div>
+                    <img src="" alt="Foto Pegawai" id="fotoPegawai" style="max-width: 100%;">
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Upload Foto</label>
+                        <input type="file" class="form-control-file" id="foto">
+                    </div>
+                    <button type="submit" class="btn button-setting text-white" style="width: 100%;">Submit</button>
+                </form>
+            </div>
+
         </div>
         <!-- ISI END -->
 
@@ -125,6 +126,22 @@
                 }
             });
         });
+        function showOfficerForm(pegawaiName, nip, foto) {
+            // Mengisi input form dengan nama dan NIP pegawai yang dipilih
+            document.getElementById('nama').value = pegawaiName;
+            document.getElementById('nip').value = nip;
+
+            // Menampilkan foto pegawai
+            var fotoPegawai = document.getElementById('fotoPegawai');
+            fotoPegawai.src = foto;
+            fotoPegawai.style.display = 'block';
+
+            // Menampilkan form input
+            document.getElementById('officerForm').style.display = 'block';
+        }
+
+
+
     </script>
 
 </body>
