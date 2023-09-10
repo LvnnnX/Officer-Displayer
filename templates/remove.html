@@ -59,38 +59,42 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{url_for('custom')}}">Add officer</a></li>
-                    <li><a class="dropdown-item" href="">Remove officer</a></li>
+                    <li><a class="dropdown-item" href="#">Remove officer</a></li>
                     <li><a class="dropdown-item" href="{{url_for('edit')}}">Edit officer</a></li>
                 </ul>
             </div>
-            <div class="row">
-                <div class="col-md-12 dropdown text-center mt-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Officer names
-                    </button>
-                    <ul class="dropdown-menu" id="officerDropdown">
-                        {% for data in table %}
-                        <li><a class="dropdown-item" href="#" data-nama="{{data.Nama}}" data-nip="{{data.NIP}}"
-                                data-foto="{{data.Profpics}}">{{data.Nama}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="row mt-4">
-                        <div class="col-md-6 mx-auto text-center">
-                            <h3>Informasi Pegawai</h3>
-                            <p>Nama: <span id="infoNama"></span></p>
-                            <p>NIP: <span id="infoNIP"></span></p>
-                            <img src="" alt="Foto Pegawai" id="infoFoto" style="max-width: 10rem;">
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center mx-auto">
-                    <button class="btn btn-primary mt-3" id="addOfficerBtn">Remove Officer</button>
-                </div>
+            <div class="col-md-9 dropdown text-center mt-5">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Officer names
+                </button>
+                <ul class="dropdown-menu">
+                    {% for data in table %}
+                    <li><a class="dropdown-item" href="#"
+                            onclick="showOfficerForm('{{data.Nama}}', '{{data.NIP}}','{{data.Profpics}}')">{{data.Nama}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
+
+            <div class="col-md-6 d-flex justify-content-center mx-auto">
+                <form class="mt-4" id="officerForm" style="width: 80%;" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" name="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">NIP</label>
+                        <input type="text" class="form-control" id="nip" name="nip">
+                    </div>
+                    <img src="" alt="Foto Pegawai" id="fotoPegawai" style="max-width: 10rem;" name="fotoPegawai">
+
+                    <div class="d-flex justify-content-center mx-auto">
+                        <button class="btn btn-primary mt-3 mb-5" id="addOfficerBtn">Remove Officer</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
         <!-- ISI END -->
 
@@ -123,6 +127,20 @@
                 }
             });
         });
+        function showOfficerForm(pegawaiName, nip, foto) {
+            // Mengisi input form dengan nama dan NIP pegawai yang dipilih
+            document.getElementById('nama').value = pegawaiName;
+            document.getElementById('nip').value = nip;
+
+            // Menampilkan foto pegawai
+            var fotoPegawai = document.getElementById('fotoPegawai');
+            fotoPegawai.src = foto;
+            fotoPegawai.style.display = 'block';
+
+            // Menampilkan form input
+            document.getElementById('officerForm').style.display = 'block';
+        }
+
     </script>
 
 </body>
