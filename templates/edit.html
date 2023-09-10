@@ -76,19 +76,19 @@
             </div>
 
             <div class="col-md-6 d-flex justify-content-center mx-auto">
-                <form class="mt-4" id="officerForm" style="width: 80%;">
+                <form class="mt-4" id="officerForm" style="width: 80%;" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama">
+                        <input type="text" class="form-control" id="nama" name="nama">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">NIP</label>
-                        <input type="text" class="form-control" id="nip">
+                        <input type="text" class="form-control" id="nip" name="nip">
                     </div>
-                    <img src="" alt="Foto Pegawai" id="fotoPegawai" style="max-width: 10rem;">
+                    <img src="" alt="Foto Pegawai" id="fotoPegawai" style="max-width: 10rem;" name="fotoPegawai">
                     <div class="mb-3 mt-3">
                         <label class="form-label">Upload Foto</label>
-                        <input type="file" class="form-control-file" id="foto">
+                        <input type="file" class="form-control-file" id="foto" name="fotoUploadPegawai">
                     </div>
                     <button type="submit" class="btn button-setting text-white" style="width: 100%;">Submit</button>
                 </form>
