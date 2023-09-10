@@ -1,1 +1,1 @@
-str
+/' + data['Nama File'])
