@@ -11,7 +11,12 @@
     <meta http-equiv="refresh" content="3600">
     <title>On Duty Tracking</title>
 </head>
-
+<style>
+    .menu-navbar:hover{
+        color: #94b7ff;
+        border-bottom: solid 1px;
+    }
+</style>
 <body class="">
     <div class="d-flex flex-column justify-content-between vh-100">
 
@@ -26,6 +31,18 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link menu-navbar" href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-navbar" href="{{url_for('static',filename='assets/custom.html')}}">
+                            Custom
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
         <!-- NAVBAR END -->

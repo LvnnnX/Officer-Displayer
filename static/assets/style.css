@@ -70,3 +70,13 @@ html {
     justify-content: center;
     align-items: center;
 }
+.button-setting{
+    background-color: #0442BF;
+    width: 50%;
+}
+.button-setting:hover{
+    background-color: #94b7ff;
+}
+.button-setting:click{
+    background-color: #94b7ff;
+}
