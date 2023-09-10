@@ -7,6 +7,7 @@ import base64
 from glob import glob
 import app
 from livereload import Server
+import time
 
 PATH = Path(__file__).parent
 IMAGEDIR = PATH / 'static' / 'images'
@@ -51,15 +52,14 @@ def indexku():
     #         'nip': '21085249',
     #     }
     # ]
+    time = dt.datetime.now().strftime('%H:%M:%S')
     df: pd.DataFrame = get_df_excel()
     table: pd.DataFrame = get_current_shift(df)
-    return render_template('index.html', table=table)
+    return render_template('index.html', table=table, time = time)
 
 if __name__ == '__main__':
-    
-    # if now > dt.timedelta(hours=18):
-    #     nama = nama[0:8]
-    #     nip = nip[0:8]
-    server = Server(app.wsgi_app)
-    app.run(debug=True)
-    server.serve()
+    while(True):
+        app.run(debug=True)
+        server = Server(app.wsgi_app)
+        server.serve()
+        time.sleep(30)
