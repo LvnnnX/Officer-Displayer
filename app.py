@@ -1,4 +1,7 @@
 from flask import Flask, render_template, url_for
+from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed, FileRequired
+from wtforms import StringField, SubmitField, SelectField
 import pandas as pd
 from pathlib import Path
 import datetime as dt
@@ -39,41 +42,13 @@ def check_valid_photos(df:list[dict]) -> list[dict]:
 
 def get_profile_pics(df:list[dict]) -> list:
     for x,data in enumerate(df):
-        data = url_for('static', filename='images/' + data['Nama File'])
+        data: str = url_for('static', filename='images/' + data['Nama File'])
         df[x]['Profpics'] = data
     return df
 
 
 @app.route('/', methods=['GET', 'POST'])
 def indexku():
-    # table = [
-    #     {
-    #         'Nama': 'Nama1',
-    #         'NIP': '123',
-    #         'Profpics': 'gambar1.jpg',
-    #     },
-    #     {
-    #         'Nama': 'Nama2',
-    #         'NIP': '456',
-    #         'Profpics': 'gambar2.jpg',
-    #     },
-    #     {
-    #         'Nama': 'Nama2',
-    #         'NIP': '456',
-    #         'Profpics': 'gambar2.jpg',
-    #     },
-    #     {
-    #         'Nama': 'Nama2',
-    #         'NIP': '456',
-    #         'Profpics': 'gambar2.jpg',
-    #     },
-    #     {
-    #         'Nama': 'Nama2',
-    #         'NIP': '456',
-    #         'Profpics': 'gambar2.jpg',
-    #     }
-    #     # ... tambahkan data lainnya sesuai kebutuhan Anda ...
-    # ]
     time = dt.datetime.now().strftime('%H:%M:%S')
     df: pd.DataFrame = get_df_excel()
     table: pd.DataFrame = get_current_shift(df)
