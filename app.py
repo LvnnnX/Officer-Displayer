@@ -4,6 +4,7 @@ from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms import StringField, SubmitField, SelectField
 from livereload import Server
 import pandas as pd
+import re
 from pathlib import Path
 import datetime as dt
 from PIL import Image
@@ -15,7 +16,7 @@ IMAGEDIR = PATH / 'static' / 'images'
 
 app: Flask = Flask(__name__)
 
-def get_df_excel(df_name:str | None = 'list-pegawai - Copy') -> pd.DataFrame:
+def get_df_excel(df_name:str | None = 'list-pegawai') -> pd.DataFrame:
     """Get excel for all user"""
     df: pd.DataFrame = pd.read_excel(PATH / f'{df_name}.xlsx', index_col=0)
     df['NIP'] = df['NIP'].apply(lambda x: x[1:])
@@ -54,7 +55,8 @@ def check_valid_photos(df:list[dict]) -> list[dict]:
     """Validating the photos, if not exist, change to default photo"""
     for x,data in enumerate(df):
         try:
-            valid = str(next(IMAGEDIR.glob(f'{data["Nama File"]}.*')))
+            valid = str(next(IMAGEDIR.glob(f'{data["NIP"]}.*')))
+            print(valid)
             df[x]['Nama File'] = valid.split('\\')[-1]
         except:
             df[x]['Nama File'] = 'template_photo.jpeg' 
@@ -66,6 +68,15 @@ def get_profile_pics(df:list[dict]) -> list:
         data: str = url_for('static', filename='images/' + data['Nama File'])
         df[x]['Profpics'] = data
     return df
+
+
+def remove_photos(location: str) -> None:
+    """Remove the photos"""
+    try:
+        Path(location).unlink()
+    except:
+        pass
+    return None
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -103,12 +114,16 @@ def edit():
         try:
             if('fotoUploadPegawai' not in request.files):
                 print('No file part')
+            if remove_location := str(next(IMAGEDIR.glob(f'{nip_new}.*'))):
+                remove_photos(remove_location)
             foto_new = request.files['fotoUploadPegawai']
             extension = foto_new.filename.split('.')[-1]
-            foto_new.save(f'{IMAGEDIR}/{nama_new}.{extension}')
+            # filename = re.sub(r'[\(\),.! ]', '', nama_new)
+            print(request.files['fotoUploadPegawai'])
+            foto_new.save(f"{IMAGEDIR}/{nip_new}.{extension}")
         except:
             foto_new = request.form.get('fotoPegawai')
-        print(nama_new, nip_new, type(foto_new), foto_new)
+        print(nama_new, nip_new, foto_new)
     return render_template('edit.html', table=table)
 
 
