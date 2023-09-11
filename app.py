@@ -46,7 +46,7 @@ def get_non_shift_df(df:list[dict], data_shift:list[dict]) -> list[dict]:
             return_df.append(data)
     return return_df
 
-def get_current_shift(df:pd.DataFrame, todict:bool=True) -> list[dict] | pd.DataFrame:
+def get_current_shift(df:pd.DataFrame, todict:bool=True):
     """get current shift data"""
     get_current_time = dt.datetime.now() 
     get_current_time = get_current_time.strftime('%d %H:%M')
