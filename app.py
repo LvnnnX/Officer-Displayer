@@ -195,11 +195,11 @@ def edit():
             foto_new = request.files['fotoUploadPegawai']
             extension = foto_new.filename.split('.')[-1]
             # filename = re.sub(r'[\(\),.! ]', '', nama_new)
-            print(request.files['fotoUploadPegawai'])
+            # print(request.files['fotoUploadPegawai'])
             foto_new.save(f"{IMAGEDIR}/{nip_new}.{extension}")
         except:
             foto_new = request.form.get('fotoPegawai')
-        print(nama_new, nip_new, foto_new)
+        # print(nama_new, nip_new, foto_new)
     return render_template('edit.html', table=table)
 
 
