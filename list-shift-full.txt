@@ -1,0 +1,6 @@
+{
+    "Pagi" : "08.00 - 14.00 WITA",
+    "Siang" : "14.00 - 20.30 WITA",
+    "Malam" : "20.00 - 02.00 WITA",
+    "Tengah Malam" : "02.00 - 08.30 WITA"
+}
