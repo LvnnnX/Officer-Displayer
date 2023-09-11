@@ -22,7 +22,7 @@ all_shift:dict = json.loads(shift)
 app: Flask = Flask(__name__)
 
 
-def get_df_excel(df_name:str | None = 'list-pegawai-sekarang',cleannip:bool=True) -> pd.DataFrame:
+def get_df_excel(df_name:str = 'list-pegawai-sekarang',cleannip:bool=True) -> pd.DataFrame:
     """Get excel for all user"""
     df: pd.DataFrame = pd.read_excel(PATH / f'{df_name}.xlsx', index_col=0)
     if cleannip:
